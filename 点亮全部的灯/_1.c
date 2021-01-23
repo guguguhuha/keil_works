@@ -1,4 +1,7 @@
 #include<reg52.h>
+#include<stdlib.h>
+#include<time.h>
+#include<stdio.h>
 /*****************
 ***点亮全部的灯***
 *****************/
@@ -32,5 +35,12 @@ void main()
 //以总线操作方式
 void main()
 {
-	P2=0x00;
+	while(1)
+	{
+		P2=0x00;
+		Sleep(100);
+		P2=0xff;
+		Sleep(100);
+	}
+	
 }

@@ -1,0 +1,91 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/23/2021  21:11:07  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+E:\PROGRAM FILES (X86)\KEIL\C51\BIN\BL51.EXE .\Objects\_1.obj TO .\Objects\·äÃùÆ÷ PRINT (.\Listings\·äÃùÆ÷.m51) RAMSIZE 
+>> (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\_1.obj (_1)
+  E:\PROGRAM FILES (X86)\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\·äÃùÆ÷ (_1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0014H     UNIT         ?PR?MAIN?_1
+            CODE    0017H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0023H     000BH     UNIT         ?PR?_DELAY?_1
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\·äÃùÆ÷ (_1)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?_1
+
+?PR?MAIN?_1
+  +--> ?PR?_DELAY?_1
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\·äÃùÆ÷ (_1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        _1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:0023H         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  B:0090H.5       PUBLIC        beep
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/23/2021  21:11:07  PAGE 2
+
+
+  C:0003H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        a
+  C:0023H         LINE#         5
+  C:0023H         LINE#         6
+  C:0023H         LINE#         7
+  C:002DH         LINE#         8
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0003H         LINE#         10
+  C:0003H         LINE#         11
+  C:0003H         LINE#         12
+  C:0003H         LINE#         13
+  C:0003H         LINE#         14
+  C:0005H         LINE#         15
+  C:000CH         LINE#         16
+  C:000EH         LINE#         17
+  C:0015H         LINE#         19
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        _1
+
+Program Size: data=9.0 xdata=0 code=46
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
