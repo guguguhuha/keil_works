@@ -1,0 +1,3 @@
+".\Objects\_1.obj" 
+TO ".\Objects\点亮第一个led灯" 
+PRINT(".\Listings\点亮第一个led灯.m51") RAMSIZE(256) 
