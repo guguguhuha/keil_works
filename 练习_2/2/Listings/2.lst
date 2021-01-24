@@ -1,0 +1,63 @@
+C51 COMPILER V9.57.0.0   2                                                                 01/24/2021 19:36:04 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE 2
+OBJECT MODULE PLACED IN .\Objects\2.obj
+COMPILER INVOKED BY: E:\Program Files (x86)\keil\C51\BIN\C51.EXE 2.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\2.lst) TABS(2) OBJECT(.\Objects\2.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          /**************************************************************
+   3          *** 8个发光管由上至下间隔1s流动，其中每个管亮500ms,灭500ms, ***
+   4          *** 亮时蜂鸣器响，灭时关闭蜂鸣器，一直重复下去。            ***
+   5          **************************************************************/
+   6          #include <intrins.h>
+   7          #define uint unsigned int 
+   8          #define uchar unsigned char
+   9            
+  10          sbit beep = P1^5;
+  11          
+  12          void delay(uint a)
+  13          {
+  14   1        uint b = a;
+  15   1        while(b--);
+  16   1        while(a--);
+  17   1      }
+  18          
+  19          void beepp()
+  20          {
+  21   1        beep=0;
+  22   1        delay(50);
+  23   1        beep=1;
+  24   1      }
+  25          
+  26          void main()
+  27          {
+  28   1        uchar temp = 0xfe;
+  29   1        P2 = temp;
+  30   1        while(1)
+  31   1        {
+  32   2          beepp();
+  33   2          delay(55700);
+  34   2          P2=0xff;
+  35   2          delay(55700);
+  36   2          temp=_crol_(temp,1);
+  37   2          P2 = temp;
+  38   2        }
+  39   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     77    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,61 @@
+C51 COMPILER V9.57.0.0   3                                                                 01/24/2021 20:42:25 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE 3
+OBJECT MODULE PLACED IN .\Objects\3.obj
+COMPILER INVOKED BY: E:\Program Files (x86)\keil\C51\BIN\C51.EXE 3.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\3.lst) TABS(2) OBJECT(.\Objects\3.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          /**************************************************************
+   3          ***        8个发光管来回流动，没个管亮100ms,                ***
+   4          ***        流动时让蜂鸣器发出“滴滴”声                       ***
+   5          **************************************************************/
+   6          #include<intrins.h>
+   7          #define uchar unsigned char
+   8          #define uint unsigned int
+   9            
+  10          sbit beep=P1^5;
+  11          
+  12          void delay(uint a)
+  13          {
+  14   1        while(a--);
+  15   1      }
+  16          
+  17          void main()
+  18          {
+  19   1        int n=8;
+  20   1        int i;
+  21   1        P2=0xfe;
+  22   1        while(1)
+  23   1        {
+  24   2          for(i=0;i<8;i++)
+  25   2          {
+  26   3            beep=~beep;
+  27   3            delay(24000);
+  28   3            P2=_crol_(P2,1);
+  29   3          }
+  30   2          for(i=0;i<8;i++)
+  31   2          {
+  32   3            beep=~beep;
+  33   3            P2=_cror_(P2,1);
+  34   3            delay(24000);
+  35   3          }
+  36   2        }
+  37   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     99    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
