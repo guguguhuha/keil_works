@@ -1,0 +1,84 @@
+C51 COMPILER V9.57.0.0   7                                                                 01/25/2021 13:16:40 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE 7
+OBJECT MODULE PLACED IN .\Objects\7.obj
+COMPILER INVOKED BY: E:\Program Files (x86)\keil\C51\BIN\C51.EXE 7.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\7.lst) TABS(2) OBJECT(.\Objects\7.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          /**************************************************************************************
+   4          *****      间隔300ms先奇数亮再偶数亮，循环三次；                           ************
+   5          *****      一个灯上下循环三次；两个分别从两边往中间流动三次                ************
+   6          *****      8个全部闪烁3次；关闭发光管，程序停止。                          ************
+   7          **************************************************************************************/
+   8          #define uint unsigned int
+   9          #define uchar unsigned char
+  10            
+  11          void delay(uint a)
+  12          {
+  13   1        while(a--);
+  14   1      }
+  15          
+  16          void main()
+  17          {
+  18   1        uchar temp = 0xfe;
+  19   1        uint i,j;
+  20   1        P2=0xaa;
+  21   1        for(i=0;i<6;i++)//间隔300ms先奇数亮再偶数亮，循环三次
+  22   1        {
+  23   2          delay(65535);
+  24   2          P2=~P2;
+  25   2        }
+  26   1        for(i=0;i<3;i++)// 一个灯上下循环三次
+  27   1        {
+  28   2          P2=temp;
+  29   2          for(j=0;j<7;j++)
+  30   2          {
+  31   3            delay(20000);
+  32   3            P2=_crol_(P2,1);
+  33   3          }
+  34   2            for(j=0;j<7;j++)
+  35   2          {
+  36   3            delay(20000);
+  37   3            P2=_cror_(P2,1);
+  38   3          }
+  39   2        }
+  40   1        for(j=0;j<3;j++) //从两边往中间流
+  41   1        {
+  42   2        P2=0x7e; 
+  43   2        delay(20000);
+  44   2        P2=0xbd;
+  45   2        delay(20000);
+  46   2        P2=0xdb; 
+  47   2        delay(20000); 
+  48   2        P2=0xe7;
+  49   2        delay(20000); 
+  50   2        P2=0xff;
+  51   2        }
+  52   1        for(i=0;i<6;i++)// 8个全部闪烁3次
+  53   1        {
+  54   2          delay(40000);
+C51 COMPILER V9.57.0.0   7                                                                 01/25/2021 13:16:40 PAGE 2   
+
+  55   2          P2=~P2;
+  56   2        }
+  57   1        
+  58   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    184    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
