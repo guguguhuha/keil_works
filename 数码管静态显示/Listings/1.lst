@@ -1,0 +1,53 @@
+C51 COMPILER V9.57.0.0   1                                                                 01/25/2021 17:45:25 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE 1
+OBJECT MODULE PLACED IN .\Objects\1.obj
+COMPILER INVOKED BY: E:\Program Files (x86)\keil\C51\BIN\C51.EXE 1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\1.lst) TABS(2) OBJECT(.\Objects\1.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          #define uchar unsigned char
+   4            
+   5          #define uint unsigned int
+   6            //000 001 010 011 100 101 110 111
+   7            
+   8          sbit qw1 = P2^2;
+   9          sbit qw2 = P2^3;
+  10          sbit qw3 = P2^4;
+  11            
+  12          void delay(uint a)
+  13          {
+  14   1        while(a--);
+  15   1      }
+  16          unsigned int smgduan[17]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,
+  17                    0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71};//œ‘ æ0~Fµƒ÷µ
+  18          void main()
+  19          {
+  20   1        int i =0;
+  21   1        for (i =0;i<16;i++)
+  22   1        {
+  23   2          qw1=1;
+  24   2          qw2=0;
+  25   2          qw3=0;
+  26   2          P0=smgduan[i];
+  27   2          delay(50000);
+  28   2        }
+  29   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     49    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     34    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
