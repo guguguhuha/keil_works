@@ -1,0 +1,3 @@
+".\Objects\1.obj" 
+TO ".\Objects\定时" 
+PRINT(".\Listings\定时.m51") RAMSIZE(256) 
