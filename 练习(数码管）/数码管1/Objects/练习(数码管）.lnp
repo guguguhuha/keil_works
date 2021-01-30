@@ -1,0 +1,3 @@
+".\Objects\c.obj" 
+TO ".\Objects\练习(数码管）" 
+PRINT(".\Listings\练习(数码管）.m51") RAMSIZE(256) 
