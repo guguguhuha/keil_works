@@ -51,8 +51,8 @@ void DigDisplay()
 					LSA=0;LSB=0;LSC=0; break;//显示第7位	
 			}
 			delay(100); //间隔一段时间扫描	
-	  }
-  }
+	    }
+    }
 }
 	
 
