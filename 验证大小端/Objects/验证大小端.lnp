@@ -1,0 +1,3 @@
+".\Objects\1.obj" 
+TO ".\Objects\验证大小端" 
+PRINT(".\Listings\验证大小端.m51") RAMSIZE(256) 
