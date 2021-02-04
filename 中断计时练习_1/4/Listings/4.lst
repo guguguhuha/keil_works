@@ -1,0 +1,110 @@
+C51 COMPILER V9.57.0.0   4                                                                 01/31/2021 19:18:06 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE 4
+OBJECT MODULE PLACED IN .\Objects\4.obj
+COMPILER INVOKED BY: E:\Program Files (x86)\keil\C51\BIN\C51.EXE 4.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\4.lst) TABS(2) OBJECT(.\Objects\4.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          sbit LSA=P2^2;
+   4          sbit LSB=P2^3;
+   5          sbit LSC=P2^4;
+   6          
+   7          unsigned int i=0;
+   8          unsigned int count=0;
+   9          
+  10          void init_time0()
+  11          {
+  12   1        EA=1;
+  13   1        TMOD=1;
+  14   1        ET0=1;
+  15   1        TR0=1;
+  16   1        TH0=0xdb;
+  17   1        TL0=0xff;
+  18   1      }
+  19          
+  20          void time0() interrupt 1
+  21          {
+  22   1        TH0=0xdb;
+  23   1        TL0=0xff;
+  24   1        i++;
+  25   1      }
+  26          
+  27          void main()
+  28          {
+  29   1        init_time0();
+  30   1        LSA=0;
+  31   1        LSB=0;
+  32   1        LSC=0;
+  33   1        while(1)
+  34   1        {
+  35   2          if(i==50)
+  36   2          {
+  37   3            if(count==16)
+  38   3            {
+  39   4              count=0;
+  40   4            }
+  41   3            P2=0x00;
+  42   3            switch(count)
+  43   3            {
+  44   4              case 0:
+  45   4                P0=0x3f;break;//0
+  46   4              case 1:
+  47   4                P0=0x06;break;//1
+  48   4              case 2:
+  49   4                P0=0x5b;break;//2
+  50   4              case 3:
+  51   4                P0=0x4f;break;//3
+  52   4              case 4:
+  53   4                P0=0x66;break;//4
+  54   4              case 5:
+C51 COMPILER V9.57.0.0   4                                                                 01/31/2021 19:18:06 PAGE 2   
+
+  55   4                P0=0x6d;break;//5
+  56   4              case 6:
+  57   4                P0=0x7d;break;//6
+  58   4              case 7:
+  59   4                P0=0x07;break;//7
+  60   4              case 8:
+  61   4                P0=0x7f;break;//8
+  62   4              case 9:
+  63   4                P0=0x6f;break;//9
+  64   4              case 10:
+  65   4                P0=0x77;break;//a
+  66   4              case 11:
+  67   4                P0=0x7c;break;//b
+  68   4              case 12:
+  69   4                P0=0x39;break;//c
+  70   4              case 13:
+  71   4                P0=0x5e;break;//d
+  72   4              case 14:
+  73   4                P0=0x79;break;//e
+  74   4              case 15:
+  75   4                P0=0x71;break;//f
+  76   4              default:
+  77   4                count=0;break;
+  78   4            }
+  79   3            count++;
+  80   3            i=0;
+  81   3      
+  82   3          }
+  83   2        }
+  84   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    240    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
