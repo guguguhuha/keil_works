@@ -1,0 +1,85 @@
+C51 COMPILER V9.54   TEST                                                                  02/10/2021 23:07:21 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE TEST
+OBJECT MODULE PLACED IN .\Objects\test.obj
+COMPILER INVOKED BY: E:\Program Files (x86)\keil\C51\BIN\C51.EXE test.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRIN
+                    -T(.\Listings\test.lst) OBJECT(.\Objects\test.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          #define uint unsigned int 
+   4          #define uchar unsigned char
+   5                  
+   6          code uchar table[]={0x3f,0x06,0x5b,0x4f,
+   7                                                  0x66,0x6d,0x7d,0x07,
+   8                                                  0x7f,0x6f,0x77,0x7c,
+   9                                                  0x39,0x5e,0x79,0x71};//显示0~F的值
+  10                  
+  11          sbit k1=P3^1;
+  12                                                          
+  13          sbit LSA=P2^2;
+  14          sbit LSB=P2^3;
+  15          sbit LSC=P2^4;
+  16                                                          
+  17          sbit led=P2^0;                                          
+  18          
+  19          uint num=0;
+  20                                                          
+  21          void delay(uint a)
+  22          {
+  23   1              while(a--);
+  24   1      }
+  25          
+  26          
+  27          void check()
+  28          {
+  29   1              uint i=0;
+  30   1              uchar temp,key;
+  31   1              if(k1==0)//判断是否按下
+  32   1              {
+  33   2                      delay(1000);//进行防抖
+  34   2                      if(k1==0)//再次判断是否按下
+  35   2                      {
+  36   3                              led=~led;
+  37   3                              num++;
+  38   3                              if(num==16)
+  39   3                                      num=0;
+  40   3                              while(!k1);//结束本次按键
+  41   3                      }
+  42   2              }
+  43   1      }
+*** WARNING C280 IN LINE 30 OF test.c: 'temp': unreferenced local variable
+*** WARNING C280 IN LINE 30 OF test.c: 'key': unreferenced local variable
+  44          
+  45          
+  46          void main()
+  47          {
+  48   1              LSA=1;
+  49   1              LSB=1;
+  50   1              LSC=1;
+  51   1              while(1)
+  52   1              {
+C51 COMPILER V9.54   TEST                                                                  02/10/2021 23:07:21 PAGE 2   
+
+  53   2                      P0=table[num];
+  54   2                      check();
+  55   2                      
+  56   2              }
+  57   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     80    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

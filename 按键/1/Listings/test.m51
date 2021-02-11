@@ -1,0 +1,138 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/10/2021  23:07:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\PROGRAM FILES (X86)\KEIL\C51\BIN\BL51.EXE .\Objects\test.obj TO .\Objects\test PRINT (.\Listings\test.m51) RAMSIZE (2
+>> 56)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\test.obj (TEST)
+  E:\PROGRAM FILES (X86)\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\PROGRAM FILES (X86)\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\test (TEST)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         _DATA_GROUP_
+            DATA    000CH     0002H     UNIT         ?DT?TEST
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     002AH     UNIT         ?PR?CHECK?TEST
+            CODE    00B9H     001BH     UNIT         ?PR?MAIN?TEST
+            CODE    00D4H     0010H     UNIT         ?CO?TEST
+            CODE    00E4H     000BH     UNIT         ?PR?_DELAY?TEST
+            CODE    00EFH     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\test (TEST)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?TEST
+  +--> ?C_INITSEG
+
+?PR?MAIN?TEST                  -----    -----
+  +--> ?CO?TEST
+  +--> ?PR?CHECK?TEST
+
+?PR?CHECK?TEST                 0008H    0004H
+  +--> ?PR?_DELAY?TEST
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\test (TEST)
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/10/2021  23:07:21  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TEST
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:008FH         PUBLIC        check
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:00D4H         PUBLIC        table
+  D:00A8H         PUBLIC        IE
+  C:00E4H         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  B:00B0H.1       PUBLIC        k1
+  C:00B9H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:00A0H.0       PUBLIC        led
+  D:000CH         PUBLIC        num
+  B:00A0H.2       PUBLIC        LSA
+  B:00A0H.3       PUBLIC        LSB
+  B:00A0H.4       PUBLIC        LSC
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        a
+  C:00E4H         LINE#         21
+  C:00E4H         LINE#         22
+  C:00E4H         LINE#         23
+  C:00EEH         LINE#         24
+  -------         ENDPROC       _DELAY
+  -------         PROC          CHECK
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:000AH         SYMBOL        temp
+  D:000BH         SYMBOL        key
+  -------         ENDDO         
+  C:008FH         LINE#         27
+  C:008FH         LINE#         28
+  C:008FH         LINE#         29
+  C:0094H         LINE#         31
+  C:0097H         LINE#         32
+  C:0097H         LINE#         33
+  C:009EH         LINE#         34
+  C:00A1H         LINE#         35
+  C:00A1H         LINE#         36
+  C:00A3H         LINE#         37
+  C:00ABH         LINE#         38
+  C:00B1H         LINE#         39
+  C:00B5H         LINE#         40
+  C:00B8H         LINE#         41
+  C:00B8H         LINE#         42
+  C:00B8H         LINE#         43
+  -------         ENDPROC       CHECK
+  -------         PROC          MAIN
+  C:00B9H         LINE#         46
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/10/2021  23:07:21  PAGE 3
+
+
+  C:00B9H         LINE#         47
+  C:00B9H         LINE#         48
+  C:00BBH         LINE#         49
+  C:00BDH         LINE#         50
+  C:00BFH         LINE#         51
+  C:00BFH         LINE#         52
+  C:00BFH         LINE#         53
+  C:00CFH         LINE#         54
+  C:00D2H         LINE#         56
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TEST
+
+Program Size: data=15.0 xdata=0 code=244
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
