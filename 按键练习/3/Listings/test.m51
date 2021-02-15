@@ -1,0 +1,228 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/11/2021  12:00:32  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\PROGRAM FILES (X86)\KEIL\C51\BIN\BL51.EXE .\Objects\test.obj TO .\Objects\test PRINT (.\Listings\test.m51) RAMSIZE (2
+>> 56)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\test.obj (TEST)
+  E:\PROGRAM FILES (X86)\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\PROGRAM FILES (X86)\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
+  E:\PROGRAM FILES (X86)\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+  E:\PROGRAM FILES (X86)\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\test (TEST)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000AH     UNIT         ?DT?TEST
+            IDATA   0012H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     007FH     UNIT         ?PR?CHECK?TEST
+            CODE    010EH     0076H     UNIT         ?PR?DISPLAY?TEST
+            CODE    0184H     006DH     UNIT         ?PR?SMGINIT?TEST
+            CODE    01F1H     0067H     UNIT         ?C?LIB_CODE
+            CODE    0258H     0011H     UNIT         ?PR?MAIN?TEST
+            CODE    0269H     0010H     UNIT         ?CO?TEST
+            CODE    0279H     000BH     UNIT         ?PR?_DELAY?TEST
+            CODE    0284H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\test (TEST)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TEST
+  +--> ?C_INITSEG
+
+?PR?MAIN?TEST
+  +--> ?PR?SMGINIT?TEST
+  +--> ?PR?DISPLAY?TEST
+  +--> ?PR?CHECK?TEST
+
+?PR?SMGINIT?TEST
+  +--> ?CO?TEST
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/11/2021  12:00:32  PAGE 2
+
+
+
+?PR?DISPLAY?TEST
+  +--> ?PR?_DELAY?TEST
+
+?PR?CHECK?TEST
+  +--> ?PR?_DELAY?TEST
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\test (TEST)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TEST
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0184H         PUBLIC        smginit
+  D:0080H         PUBLIC        P0
+  C:008FH         PUBLIC        check
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0269H         PUBLIC        table
+  D:00A8H         PUBLIC        IE
+  C:0279H         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  C:0258H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:0008H         PUBLIC        smg
+  D:0010H         PUBLIC        num
+  B:00A0H.2       PUBLIC        LSA
+  B:00A0H.3       PUBLIC        LSB
+  B:00A0H.4       PUBLIC        LSC
+  D:00C8H         PUBLIC        T2CON
+  C:010EH         PUBLIC        display
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        a
+  C:0279H         LINE#         23
+  C:0279H         LINE#         24
+  C:0279H         LINE#         25
+  C:0283H         LINE#         26
+  -------         ENDPROC       _DELAY
+  -------         PROC          CHECK
+  C:008FH         LINE#         28
+  C:008FH         LINE#         29
+  C:008FH         LINE#         30
+  C:0092H         LINE#         31
+  C:0098H         LINE#         32
+  C:0098H         LINE#         33
+  C:009FH         LINE#         34
+  C:00A5H         LINE#         35
+  C:00A5H         LINE#         36
+  C:00A8H         LINE#         37
+  C:00BAH         LINE#         38
+  C:00BAH         LINE#         39
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/11/2021  12:00:32  PAGE 3
+
+
+  C:00BAH         LINE#         40
+  C:00C1H         LINE#         41
+  C:00C1H         LINE#         42
+  C:00C9H         LINE#         43
+  C:00C9H         LINE#         44
+  C:00D1H         LINE#         45
+  C:00D1H         LINE#         46
+  C:00D7H         LINE#         47
+  C:00D7H         LINE#         48
+  C:00DAH         LINE#         49
+  C:00EDH         LINE#         50
+  C:00EDH         LINE#         51
+  C:00EDH         LINE#         52
+  C:00F5H         LINE#         53
+  C:00F5H         LINE#         54
+  C:00F9H         LINE#         55
+  C:00F9H         LINE#         56
+  C:00FDH         LINE#         57
+  C:00FDH         LINE#         58
+  C:0108H         LINE#         59
+  C:0108H         LINE#         60
+  C:010DH         LINE#         61
+  C:010DH         LINE#         62
+  C:010DH         LINE#         63
+  -------         ENDPROC       CHECK
+  -------         PROC          SMGINIT
+  -------         DO            
+  D:0002H         SYMBOL        temp
+  -------         ENDDO         
+  C:0184H         LINE#         66
+  C:0184H         LINE#         67
+  C:0184H         LINE#         68
+  C:0193H         LINE#         69
+  C:01A8H         LINE#         70
+  C:01C8H         LINE#         71
+  C:01E1H         LINE#         72
+  C:01E8H         LINE#         73
+  C:01EAH         LINE#         74
+  C:01ECH         LINE#         75
+  C:01EEH         LINE#         76
+  C:01F0H         LINE#         77
+  -------         ENDPROC       SMGINIT
+  -------         PROC          DISPLAY
+  -------         DO            
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:010EH         LINE#         79
+  C:010EH         LINE#         80
+  C:010EH         LINE#         81
+  C:0111H         LINE#         82
+  C:0111H         LINE#         83
+  C:0111H         LINE#         84
+  C:0139H         LINE#         85
+  C:0139H         LINE#         86
+  C:0139H         LINE#         87
+  C:013DH         LINE#         88
+  C:013DH         LINE#         89
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/11/2021  12:00:32  PAGE 4
+
+
+  C:0145H         LINE#         90
+  C:0145H         LINE#         91
+  C:0149H         LINE#         92
+  C:0149H         LINE#         93
+  C:0151H         LINE#         94
+  C:0151H         LINE#         95
+  C:0155H         LINE#         96
+  C:0155H         LINE#         97
+  C:015DH         LINE#         98
+  C:015DH         LINE#         99
+  C:0161H         LINE#         100
+  C:0161H         LINE#         101
+  C:0167H         LINE#         102
+  C:0167H         LINE#         103
+  C:016EH         LINE#         104
+  C:0175H         LINE#         105
+  C:0178H         LINE#         106
+  C:0183H         LINE#         107
+  -------         ENDPROC       DISPLAY
+  -------         PROC          MAIN
+  C:0258H         LINE#         110
+  C:0258H         LINE#         111
+  C:0258H         LINE#         112
+  C:025AH         LINE#         113
+  C:025CH         LINE#         114
+  C:025EH         LINE#         115
+  C:025EH         LINE#         116
+  C:025EH         LINE#         117
+  C:0261H         LINE#         118
+  C:0264H         LINE#         119
+  C:0267H         LINE#         121
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TEST
+
+  -------         MODULE        ?C?IMUL
+  C:01F1H         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
+  -------         MODULE        ?C?UIDIV
+  C:0203H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+Program Size: data=19.0 xdata=0 code=649
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
